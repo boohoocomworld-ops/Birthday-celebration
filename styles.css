@@ -1,0 +1,14 @@
+.birthday {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+h1 {
+  color: #343a40;
+}
+
+p {
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+}
