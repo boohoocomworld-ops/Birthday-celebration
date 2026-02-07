@@ -1,42 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Birthday Celebration</title>
-    <style>
-        body {
-            background-color: #f0f8ff;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
-        h1 {
-            color: #ff69b4;
-        }
-        .container {
-            padding: 20px;
-        }
-        .message {
-            font-size: 1.2em;
-            margin-top: 20px;
-        }
-        footer {
-            margin-top: 50px;
-            font-size: 0.8em;
-            color: #666;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Valentine Card 💕</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #000;
+      font-family: Arial, sans-serif;
+    }
+
+    .story {
+      width: 320px;
+      height: 560px;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(255, 126, 179, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .slide {
+      display: none;
+      animation: fade 0.5s ease;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    h1 {
+      font-size: 28px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.5;
+    }
+
+    .heart {
+      font-size: 70px;
+      margin: 15px 0;
+      animation: beat 1s infinite;
+    }
+
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    @keyframes fade {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .tap {
+      position: absolute;
+      bottom: 15px;
+      font-size: 14px;
+      opacity: 0.8;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Happy Birthday!</h1>
-        <p class="message">Join us for a day full of joy and celebration!</p>
-        <p>We have a lot of surprises in store. Don’t miss out!</p>
+
+  <div class="story" onclick="nextSlide()">
+
+    <div class="slide active">
+      <h1>Hey 💕</h1>
+      <p>Someone has<br>something for you</p>
     </div>
-    <footer>
-        <p>&copy; 2026 Birthday Celebrations. All rights reserved.</p>
-    </footer>
+
+    <div class="slide">
+      <div class="heart">❤️</div>
+      <p>Just a little<br>Valentine surprise</p>
+    </div>
+
+    <div class="slide">
+      <h1>Happy Valentine's Day 💖</h1>
+      <p>You're really special<br>Never forget that 😊</p>
+    </div>
+
+    <div class="tap">Tap to continue →</div>
+
+  </div>
+
+  <script>
+    let current = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    function nextSlide() {
+      slides[current].classList.remove("active");
+      current = (current + 1) % slides.length;
+      slides[current].classList.add("active");
+    }
+  </script>
+
 </body>
 </html>
